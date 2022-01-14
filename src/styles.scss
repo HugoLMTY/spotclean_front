@@ -1,1 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'theme.scss';
+@import '~bootstrap/scss/bootstrap';
+
+.not-selectable {
+	user-select: none;
+}
+
+.link {
+	transition: 0.2s;
+}
+
+.link:hover {
+	cursor: pointer;
+	filter: brightness(1.1)
+}

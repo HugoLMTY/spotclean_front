@@ -10,6 +10,15 @@ export class NavbarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+	  console.log('wassup')
+  }
+
+  loginAction() {
+	  console.log('login')
+  }
+
+  registerAction() {
+	  console.log('register')
   }
 
 }

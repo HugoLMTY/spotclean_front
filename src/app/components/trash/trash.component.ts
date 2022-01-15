@@ -83,37 +83,15 @@ export class TrashComponent implements OnInit {
 		setTimeout(() => {
 			reward.isCollecting = false
 
-			// Pick a random boolean value
 			const isSuccess = Math.random() >= 0.5
-
-			let modal = {
-				title: '',
-				text: '',
-				icon: '',
-				confirmButtonText: '',
-				showCancelButton: false,
-			}
-
-
-			if (isSuccess) {
-				modal.title = 'Success!'
-				modal.text = 'You have claimed your reward!'
-				modal.confirmButtonText = 'Great!'
-			} else {
-				modal.title = 'Oops!'
-				modal.text = 'You have not claimed your reward!'
-				modal.confirmButtonText = 'Ok'
-			}
-
 			Swal.fire({
-				icon: isSuccess ? 'success' : 'error', 
-				title: modal.title,
-				text: modal.text,
-				confirmButtonText: modal.confirmButtonText,
-				showCancelButton: modal.showCancelButton,
+				icon: 				isSuccess ? 'success' : 'error', 
+				title: 				isSuccess ? 'Success!' : 'Oops!',
+				text: 				isSuccess ? 'You have claimed your reward!' : 'You have not claimed your reward!',
+				confirmButtonText: 	isSuccess ? 'Great!' : 'Ok',
+				showCancelButton: false,
 			})
-
-
+			
 		}, 2000)
 	}
 }

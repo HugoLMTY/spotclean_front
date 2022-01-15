@@ -42,7 +42,7 @@ version="1.0" width="100%" height="100%"
 			></div> -->
 			
 		</div>
-		<div class="row">
+		<div class="row not-selectable">
 			<div *ngFor="let step of steps" class="col">
 				{{ step.points }}
 			</div>
@@ -53,20 +53,22 @@ version="1.0" width="100%" height="100%"
 	</div>
 </div>
 
-<div class="row g-2">
+<div class="row g-2 p-2">
 
-	<div *ngFor="let reward of rewards" class="col-md-3 col-6 card">
+	<div *ngFor="let reward of rewards" class="col-md-3 col-6 not-selectable p-2">
 
-		<div class="card-body">
-			<h5 class="card-title">{{ reward.name }}</h5>
-			<p class="card-text">{{ reward.desc }}</p>
-			<button class="btn btn-primary" [disabled]="reward.points > totalPoints || reward.isCollecting" (click)="claimReward(reward)">
-				{{ 
-					reward.points > totalPoints 
-						? "Not enough points" 
-						: reward.isCollecting ? 'Collecting...' : 'Collect'
-				 }}
-			</button>
+		<div class="card">
+			<div class="card-body" [ngClass]="{'border border-primary border-2 rounded-2 bg-light': reward.points < totalPoints}">
+				<h5 class="card-title">{{ reward.name }} - {{ reward.points }} points</h5>
+				<p class="card-text">{{ reward.desc }}</p>
+				<button class="btn btn-primary" [disabled]="reward.points > totalPoints || reward.isCollecting" (click)="claimReward(reward)">
+					{{ 
+						reward.points > totalPoints 
+							? "Not enough points" 
+							: reward.isCollecting ? 'Collecting...' : 'Collect'
+					 }}
+				</button>
+			</div>
 		</div>
 
 	</div>

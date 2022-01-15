@@ -15,10 +15,9 @@ export class User {
 
 	public profilePicture: string
 	
-	public visitedBins: number
 	public favoritesBins: Array<string>
 
-	public recycledTrash: Array<object>
+	public visitedBins: Array<object>
 
 	private _json: any
 
@@ -47,7 +46,7 @@ export class User {
 		this.visitedBins 	= user['visitedBins']
 		this.favoritesBins 	= user['favoritesBins']
 
-		this.recycledTrash 	= user['recycledTrash']
+		this.visitedBins 	= user['visitedBins']
 
 		if (deep) {
 		} else {

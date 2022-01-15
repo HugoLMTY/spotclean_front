@@ -9,6 +9,10 @@ const routes: Routes = [
 	{
 		path: 'bins',
 		loadChildren: () => import('src/app/pages/bins/bins.module').then(m => m.BinsModule)
+	},
+	{
+		path: 'profil',
+		loadChildren: () => import('src/app/pages/profil/profil.module').then(m => m.ProfilModule)
 	}
 ];
 

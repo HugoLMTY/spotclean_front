@@ -63,7 +63,7 @@ export class TrashComponent implements OnInit {
 
 
 	ngOnInit() {
-		this.totalPoints = this.user.recycledTrash.reduce((acc: any, val: any) => acc + val.points, 0)
+		this.totalPoints = this.user.visitedBins.reduce((acc: any, val: any) => acc + val.points, 0)
 		this.initProgressBar()
 	}
 	initProgressBar() {

@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
 		email: '',
 		password: '',
 
-		recycledTrash: [
+		visitedBins: [
 			{
 				binId: '420',
 				date: new Date(),

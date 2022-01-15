@@ -1,0 +1,71 @@
+<div class="container m-2">
+	<div class="card">
+		<div class="card-header">
+			<h5 class="card-title">
+				<img src="{{user.profilePicture}}" alt="">
+				Profil de {{ user.firstName }} {{ user.lastName }}
+				<p>
+				</p>
+			</h5>
+			<p class="card-text">
+				<span class="badge bg-primary">Points: {{ userPoints }}</span>
+				<br>
+				<span class="badge bg-primary">Nombre de déchêts recyclés: {{ userCollectedTrash }}</span>
+			</p>
+		</div>
+
+
+		<div class="card-body" id="datas_points">
+			Résume des Points
+
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Bin</th>
+						<th scope="col">Date</th>
+						<th scope="col">Type</th>
+						<th scope="col">Count</th>
+						<th scope="col">Points</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let point of user.visitedBins">
+
+						<td>{{ point.binId.name }}</td>
+						<td>{{ point.date | date }}</td>
+						<td>{{ point.type }}</td>
+						<td>{{ point.count }}</td>
+						<td>{{ point.points }}</td>
+
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="card-body" id="datas_favorites">
+			Poubelles favorites
+
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">Bin</th>
+						<th scope="col">Place</th>
+						<th scope="col">Total visits</th>
+						<th scope="col">Total count</th>
+						<th scope="col">Total points</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr *ngFor="let bin of sortedFavorites">
+
+						<td>{{ bin.binId.name }}</td>
+						<td>{{ bin.binId.address.city }}, {{ bin.binId.address.street }} </td>
+						<td>{{ getUserVisitCount(bin.binId._id) }}</td>
+						<td>{{ getUserCount(bin.binId._id) }}</td>
+						<td>{{ getUserPointsCount(bin.binId._id) }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

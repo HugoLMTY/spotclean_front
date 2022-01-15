@@ -1,6 +1,12 @@
 @import 'theme.scss';
 @import '~bootstrap/scss/bootstrap';
 
+
+
+.card-item {
+	margin: 10px
+}
+
 .not-selectable {
 	user-select: none;
 }

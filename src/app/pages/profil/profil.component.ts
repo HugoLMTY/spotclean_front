@@ -9,6 +9,8 @@ export class ProfilComponent implements OnInit {
 
 	constructor() { }
 
+	public isLoaded: boolean = false
+
 	public currentUser: any
 	public user: any = {
 		firstName: 'John',
@@ -113,7 +115,7 @@ export class ProfilComponent implements OnInit {
 	public userPoints: number = 0
 	public userCollectedTrash: number = 0
 
-	public sortedFavorites: any[] = []
+	public sortedFavorites: any = []
 
 	public isEditing: boolean = false
 
@@ -134,17 +136,19 @@ export class ProfilComponent implements OnInit {
 
 
 		this.initFavorites()
+		this.isLoaded = true
 	}
 
 	initFavorites() {
-
-		this.sortedFavorites = this.user.visitedBins
+		const favList = this.user.visitedBins
 			.sort((a: any, b: any) => {
 				return b.points - a.points
 			})
-
-		this.sortedFavorites = this.sortedFavorites.slice(0, 3)
-
+			.slice(0, 3)
+			.forEach((bin: any) => {
+				if (this.sortedFavorites.findIndex((b: any) => bin.binId._id == b.binId._id) === -1)
+					this.sortedFavorites.push(bin)
+			})
 	}
 
 	getUserVisitCount(binId: any) {

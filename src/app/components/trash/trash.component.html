@@ -31,9 +31,7 @@
 		</svg>
 	</div>
 	<div class="col-12">
-		<h1>Points: {{ totalPoints }}</h1> 
-		
-		<h1>percentage: {{ percentage }}%</h1>
+		<h1>Points: {{ totalPoints }} - {{ percentage }}%</h1>
 		<div class="progress" style="height: 50px;" id="progress-bar">
 			<!-- <div 
 				id="trash-progress-bar"
@@ -56,7 +54,7 @@
 
 <div class="row g-2 p-2">
 
-	<div *ngFor="let reward of rewards" class="col-md-3 col-6 not-selectable p-2">
+	<div *ngFor="let reward of rewards" class="col-md-3 col-12 not-selectable p-2">
 
 		<div class="card">
 			<div class="card-body" [ngClass]="{'border border-primary border-2 rounded-2 bg-light': reward.points < totalPoints}">
@@ -81,6 +79,24 @@
 
 	<div class="accordion" id="pointsAccordion">
 
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">Bin #</th>
+					<th scope="col">Date</th>
+					<th scope="col">Points</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let recycled of user.visitedBins">
+					<th scope="row">{{ recycled.binId._id }}</th>
+					<td>{{ recycled.date | date }}</td>
+					<td>{{ recycled.points }}</td>
+					
+				</tr>
+			</tbody>
+		</table>
+<!-- 
 		<div *ngFor="let recycled of user.recycledTrash" class="accordion-item">
 			<div class="accordion-header">
 				<p>
@@ -89,7 +105,7 @@
 					at {{ recycled.date | date}}
 				</p>
 			</div>
-		</div>
+		</div> -->
 
 	</div>
 </div>

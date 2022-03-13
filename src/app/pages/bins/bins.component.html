@@ -45,7 +45,7 @@
 			</table>
 
 			<div class="card-footer text-muted">
-				<button class="btn btn-primary">Voir sur la carte</button>
+				<button class="btn btn-primary" [routerLink]="['/map']" [queryParams]="{ bin: bin._id }">Voir sur la carte</button>
 			</div>
 		</div>
 

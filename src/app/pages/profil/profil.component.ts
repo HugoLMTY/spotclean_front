@@ -38,7 +38,7 @@ export class ProfilComponent implements OnInit {
 				date: new Date(),
 				type: 'plastic',
 				count: 10,
-				points: 10
+				points: 1
 			},
 			{
 				binId: {
@@ -85,7 +85,7 @@ export class ProfilComponent implements OnInit {
 				date: new Date(),
 				type: 'metal',
 				count: 2,
-				points: 4
+				points: 1
 			},
 			{
 				binId: {
@@ -107,7 +107,7 @@ export class ProfilComponent implements OnInit {
 				date: new Date(),
 				type: 'paper',
 				count: 5,
-				points: 15
+				points: 1
 			}
 		],
 	}

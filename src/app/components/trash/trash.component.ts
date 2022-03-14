@@ -16,46 +16,42 @@ export class TrashComponent implements OnInit {
 	public totalPoints: number = 0
 
 	public steps = [
-		{ name: 'Step 0', points: 5 },
-		{ name: 'Step 1', points: 15 },
-		{ name: 'Step 2', points: 25 },
-		{ name: 'Step 3', points: 35 },
-		{ name: 'Step 4', points: 45 },
-		{ name: 'Step 5', points: 55 },
-		{ name: 'Step 6', points: 65 },
-		{ name: 'Step 7', points: 75 },
-		{ name: 'Step 8', points: 85 },
-		{ name: 'Step 9', points: 95 },
-		{ name: 'Step 10', points: 105 },
-		{ name: 'Step 11', points: 115 },
-		{ name: 'Step 12', points: 125 },
+		{ name: 'Step 0', 	points: 0 		},
+		{ name: 'Step 1', 	points: 5 		},
+		{ name: 'Step 2', 	points: 10 		},
+		{ name: 'Step 3', 	points: 15 		},
+		{ name: 'Step 4', 	points: 20 		},
+		{ name: 'Step 5', 	points: 25 		},
+		{ name: 'Step 6', 	points: 30 		},	
+		{ name: 'Step 7', 	points: 35 		},
+		{ name: 'Step 8', 	points: 40 		},
 	]
 	public rewards = [
 		{
-			name: 'Reward 0', 
-			desc: 'Super cool reward 0', 
-			points: 25, 
+			name: 'Propre', 
+			desc: '', 
+			points: 10, 
 			collect: function() { this.isCollecting = true }, 
 			isCollecting: false,
 		},
 		{
-			name: 'Reward 1', 
-			desc: 'Super cool reward 1', 
-			points: 50, 
+			name: 'Super propre', 
+			desc: '', 
+			points: 20, 
 			collect: function() { this.isCollecting = true }, 
 			isCollecting: false,
 		},
 		{
-			name: 'Reward 2', 
-			desc: 'Super cool reward 2', 
-			points: 75, 
+			name: 'Super super propre', 
+			desc: '', 
+			points: 30, 
 			collect: function() { this.isCollecting = true }, 
 			isCollecting: false,
 		},
 		{
-			name: 'Reward 3', 
-			desc: 'Super cool reward 3', 
-			points: 100, 
+			name: 'Mega propre', 
+			desc: '', 
+			points: 40, 
 			collect: function() { this.isCollecting = true }, 
 			isCollecting: false,
 		},
@@ -83,12 +79,13 @@ export class TrashComponent implements OnInit {
 		setTimeout(() => {
 			reward.isCollecting = false
 
-			const isSuccess = Math.random() >= 0.5
+			const isSuccess = true
 			Swal.fire({
-				icon: 				isSuccess ? 'success' : 'error', 
-				title: 				isSuccess ? 'Success!' : 'Oops!',
-				text: 				isSuccess ? 'You have claimed your reward!' : 'You have not claimed your reward!',
-				confirmButtonText: 	isSuccess ? 'Great!' : 'Ok',
+				icon: 				isSuccess ? 'success' 						: 'error', 
+				title: 				isSuccess ? 'Spot Cleared' 					: 'Oops!',
+				text: 				isSuccess ? 'You have cleared the reward!' 	: 'You have not claimed your reward!',
+				confirmButtonText: 	isSuccess ? 'Great!' 						: 'Ok',
+				confirmButtonColor: '#006e27',
 				showCancelButton: false,
 			})
 			
